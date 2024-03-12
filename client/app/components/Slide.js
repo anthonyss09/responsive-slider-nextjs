@@ -4,7 +4,7 @@ export default function Slide({ slideNumber }) {
       <span>
         {" "}
         <p className="slide-number-p">Slide {slideNumber}</p>
-        <p>Swipe with touch, arrow or mouse pad.</p>
+        <p>Swipe with touch, arrow key or mouse pad.</p>
       </span>
     </div>
   );
