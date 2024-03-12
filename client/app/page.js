@@ -9,7 +9,7 @@ export default function Home() {
   const translationRef = useRef(0);
   const activeSlideRef = useRef(1);
   const numberOfSlides = 4;
-  const slideHeightInt = 80;
+  const slideHeightInt = 500;
 
   useEffect(() => {
     const wheel = (e) => {
@@ -20,18 +20,18 @@ export default function Home() {
         if (e.deltaY > 0 && activeSlideRef.current < numberOfSlides) {
           activeSlideRef.current++;
           translationRef.current -= slideHeightInt;
-          sliderInner.style.transform = `translateY(${translationRef.current}vh)`;
+          sliderInner.style.transform = `translateY(${translationRef.current}px)`;
         }
         //if scrolling up
         if (e.deltaY < 0 && activeSlideRef.current > 1) {
           activeSlideRef.current--;
           translationRef.current += slideHeightInt;
-          sliderInner.style.transform = `translateY(${translationRef.current}vh)`;
+          sliderInner.style.transform = `translateY(${translationRef.current}px)`;
         }
 
         setTimeout(() => {
           pauseScrollRef.current = false;
-        }, 1500);
+        }, 1200);
       }
     };
 
@@ -47,16 +47,16 @@ export default function Home() {
         pauseScrollRef.current = true;
 
         //if scrolling down
-        if (deltaY > 0 && activeSlideRef.current < numberOfSlides) {
+        if (deltaY < 0 && activeSlideRef.current < numberOfSlides) {
           activeSlideRef.current++;
           translationRef.current -= slideHeightInt;
-          sliderInner.style.transform = `translateY(${translationRef.current}vh)`;
+          sliderInner.style.transform = `translateY(${translationRef.current}px)`;
         }
         //if scrolling up
-        if (deltaY < 0 && activeSlideRef.current > 1) {
+        if (deltaY > 0 && activeSlideRef.current > 1) {
           activeSlideRef.current--;
           translationRef.current += slideHeightInt;
-          sliderInner.style.transform = `translateY(${translationRef.current}vh)`;
+          sliderInner.style.transform = `translateY(${translationRef.current}px)`;
         }
 
         setTimeout(() => {
@@ -71,13 +71,13 @@ export default function Home() {
         if (e.keyCode === 40 && activeSlideRef.current < numberOfSlides) {
           activeSlideRef.current++;
           translationRef.current -= slideHeightInt;
-          sliderInner.style.transform = `translateY(${translationRef.current}vh)`;
+          sliderInner.style.transform = `translateY(${translationRef.current}px)`;
         }
         //if scrolling up
         if (e.keyCode == 38 && activeSlideRef.current > 1) {
           activeSlideRef.current--;
           translationRef.current += slideHeightInt;
-          sliderInner.style.transform = `translateY(${translationRef.current}vh)`;
+          sliderInner.style.transform = `translateY(${translationRef.current}px)`;
         }
       }
     };
